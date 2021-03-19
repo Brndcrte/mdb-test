@@ -1,0 +1,48 @@
+<div class="container registraion-form-container">
+   
+
+<!-- Material form login -->
+<mdb-card>
+
+    <mdb-card-header class="info-color white-text text-center py-4">
+      <h5>
+        <strong>Form</strong>
+      </h5>
+    </mdb-card-header>
+  
+  
+    <!--Card content-->
+    <mdb-card-body class="px-lg-5 pt-0">
+  
+      <!-- Form -->
+      <form class="text-center" style="color: #757575;">
+  
+        <!-- Name -->
+        <div class="md-form">
+            <input mdbInput name="input" type="text" id="name" class="form-control" [(ngModel)]="regModel.name">
+            <label for="materialLoginFormEmail">Name</label>
+        </div>
+  
+        <!-- Email -->
+        <div class="md-form">
+            <input mdbInput mdbValidate name="inputEmail" type="email" id="email" class="form-control" [(ngModel)]="regModel.email" #inputEmail="ngModel" required pattern="[^ @]*@[^ @]*">
+            <label for="form8">Email</label>
+            <mdb-error *ngIf="inputEmail.invalid && (inputEmail.dirty || inputEmail.touched || regModel.isEmailInvalid)">Input invalid</mdb-error>
+            <mdb-success *ngIf="inputEmail.valid && (inputEmail.dirty || inputEmail.touched)">Input valid</mdb-success>
+        </div>
+  
+       <app-string-reverse [regModel]="regModel"></app-string-reverse>
+  
+        <!-- Sign in button -->
+        <button (click)="SendData(inputEmail.valid)"  mdbBtn color="info" outline="true" rounded="true" block="true" class="my-4 waves-effect z-depth-0" mdbWavesEffect
+          type="submit">Send</button>
+  
+      
+      </form>
+      <!-- Form -->
+  
+    </mdb-card-body>
+  
+  </mdb-card>
+  <!-- Material form login -->
+  </div>
